@@ -1,3 +1,4 @@
 #!/usr/bin/python3
-number = 98
-print(f"{number} Battery street")
+str = "Holberton School"
+print(str * 3)
+print(str[:9])
