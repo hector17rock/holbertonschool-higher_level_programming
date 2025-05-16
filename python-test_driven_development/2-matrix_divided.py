@@ -26,6 +26,11 @@ def matrix_divided(matrix, div):
         raise TypeError("matrix must be a matrix (list of lists) "
                         "of integers/floats")
 
+    # Check if matrix is empty or has empty rows
+    if len(matrix) == 0:
+        raise TypeError("matrix must be a matrix (list of lists) "
+                        "of integers/floats")
+
     if not all(isinstance(x, (int, float)) for row in matrix for x in row):
         raise TypeError("matrix must be a matrix (list of lists) "
                         "of integers/floats")
