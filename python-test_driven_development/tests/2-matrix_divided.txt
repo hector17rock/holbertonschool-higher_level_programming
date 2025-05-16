@@ -32,3 +32,12 @@ TypeError: div must be a number
 >>> matrix_divided([[1, 2], [3, 4]], 0)
 Traceback (most recent call last):
 ZeroDivisionError: division by zero
+
+>>> # Test division by infinity
+>>> import math
+>>> matrix = [[10, 20, 30], [40, 50, 60]]
+>>> result = matrix_divided(matrix, float('inf'))
+>>> result
+[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+>>> all(all(val == 0.0 for val in row) for row in result)
+True
