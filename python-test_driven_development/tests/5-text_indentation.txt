@@ -2,10 +2,11 @@
 
 >>> text_indentation("Hello. How are you? Fine:")
 Hello.
-
- How are you?
-
- Fine:
+<BLANKLINE>
+How are you?
+<BLANKLINE>
+Fine:
+<BLANKLINE>
 
 >>> text_indentation("Hi")
 Hi
@@ -18,10 +19,10 @@ text must be a string
 
 >>> text_indentation("This is fun.  Let's keep going: Yes? Ok.")
 This is fun.
-
- Let's keep going:
-
- Yes?
-
- Ok.
-
+<BLANKLINE>
+Let's keep going:
+<BLANKLINE>
+Yes?
+<BLANKLINE>
+Ok.
+<BLANKLINE>
