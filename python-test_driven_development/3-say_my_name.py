@@ -22,15 +22,23 @@ def say_my_name(first_name, last_name=""):
         My name is Walter White
         >>> say_my_name("Bob")
         My name is Bob
-        >>> say_my_name(12, "White")
-        Traceback (most recent call last):
-        ...
-        TypeError: first_name must be a string
+        >>> try:
+        ...     say_my_name(12, "White")
+        ... except Exception as e:
+        ...     print(e)
+        first_name must be a string
+        >>> try:
+        ...     say_my_name("John", None)
+        ... except Exception as e:
+        ...     print(e)
+        last_name must be a string
+        >>> say_my_name("Alice", "")
+        My name is Alice
     """
     if not isinstance(first_name, str):
         raise TypeError("first_name must be a string")
     if not isinstance(last_name, str):
         raise TypeError("last_name must be a string")
 
-    print("My name is {}{}".format(
-        first_name, " " + last_name if last_name else " "))
+    full_name = first_name if last_name == "" else f"{first_name} {last_name}"
+    print(f"My name is {full_name}")
