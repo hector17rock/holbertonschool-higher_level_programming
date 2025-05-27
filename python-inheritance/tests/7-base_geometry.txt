@@ -1,64 +1,88 @@
-#!/usr/bin/python3
-import unittest
-from io import StringIO
-import sys
+The ``7-base_geometry`` module
+============================
 
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
+Using ``BaseGeometry``
+---------------------
 
+First, import the class:
 
-class TestBaseGeometry(unittest.TestCase):
-    def setUp(self):
-        self.bg = BaseGeometry()
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
-    def test_area_not_implemented(self):
-        with self.assertRaises(Exception) as cm:
-            self.bg.area()
-        self.assertEqual(str(cm.exception), "area() is not implemented")
+Now test instantiating the class:
+>>> bg = BaseGeometry()
+>>> type(bg)
+<class '7-base_geometry.BaseGeometry'>
 
-    def test_integer_validator_valid(self):
-        try:
-            self.bg.integer_validator("width", 10)
-            self.bg.integer_validator("height", 1)
-        except Exception:
-            self.fail("integer_validator raised an exception for valid input")
+Test the area method:
+>>> bg.area()
+Traceback (most recent call last):
+    ...
+Exception: area() is not implemented
 
-    def test_integer_validator_type_error(self):
-        test_cases = [
-            ("str", "John"),
-            ("float", 3.14),
-            ("none", None),
-            ("list", [1, 2, 3]),
-            ("dict", {"key": 1}),
-            ("tuple", (4,)),
-            ("bool", True),
-            ("set", {1, 2}),
-        ]
-        for name, value in test_cases:
-            with self.subTest(value=value):
-                with self.assertRaises(TypeError) as cm:
-                    self.bg.integer_validator(name, value)
-                self.assertEqual(str(cm.exception), f"{name} must be an integer")
+Test integer_validator with valid inputs:
+>>> bg.integer_validator("width", 10)
+>>> bg.integer_validator("height", 1)
 
-    def test_integer_validator_value_error(self):
-        test_cases = [
-            ("zero", 0),
-            ("negative", -5),
-        ]
-        for name, value in test_cases:
-            with self.subTest(value=value):
-                with self.assertRaises(ValueError) as cm:
-                    self.bg.integer_validator(name, value)
-                self.assertEqual(str(cm.exception), f"{name} must be greater than 0")
+Test integer_validator with invalid types:
+>>> bg.integer_validator("name", "John")
+Traceback (most recent call last):
+    ...
+TypeError: name must be an integer
 
-    def test_integer_validator_missing_arguments(self):
-        with self.assertRaises(TypeError):
-            self.bg.integer_validator()
-        with self.assertRaises(TypeError):
-            self.bg.integer_validator("age")
-        with self.assertRaises(TypeError):
-            self.bg.integer_validator(value=5)
+>>> bg.integer_validator("float", 3.14)
+Traceback (most recent call last):
+    ...
+TypeError: float must be an integer
 
+>>> bg.integer_validator("none", None)
+Traceback (most recent call last):
+    ...
+TypeError: none must be an integer
 
-if __name__ == '__main__':
-    unittest.main()
+>>> bg.integer_validator("list", [1, 2, 3])
+Traceback (most recent call last):
+    ...
+TypeError: list must be an integer
+
+>>> bg.integer_validator("dict", {"key": 1})
+Traceback (most recent call last):
+    ...
+TypeError: dict must be an integer
+
+>>> bg.integer_validator("tuple", (4,))
+Traceback (most recent call last):
+    ...
+TypeError: tuple must be an integer
+
+>>> bg.integer_validator("bool", True)
+Traceback (most recent call last):
+    ...
+TypeError: bool must be an integer
+
+>>> bg.integer_validator("set", {1, 2})
+Traceback (most recent call last):
+    ...
+TypeError: set must be an integer
+
+Test integer_validator with invalid values:
+>>> bg.integer_validator("zero", 0)
+Traceback (most recent call last):
+    ...
+ValueError: zero must be greater than 0
+
+>>> bg.integer_validator("negative", -5)
+Traceback (most recent call last):
+    ...
+ValueError: negative must be greater than 0
+
+Test integer_validator with missing arguments:
+>>> bg.integer_validator()
+Traceback (most recent call last):
+    ...
+TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+>>> bg.integer_validator("age")
+Traceback (most recent call last):
+    ...
+TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
 
