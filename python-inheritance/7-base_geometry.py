@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Defines a base class for geometry with an integer validator."""
+"""Defines a base class BaseGeometry with validation methods."""
 
 
 class BaseGeometry:
@@ -11,15 +11,15 @@ class BaseGeometry:
 
     def integer_validator(self, name, value):
         """
-        Validates that 'value' is a positive integer.
+        Validates the parameter `value`.
 
         Args:
-            name (str): The name of the value (used in error messages).
-            value (int): The value to validate.
+            name (str): The name of the parameter (used in the error message).
+            value (int): The parameter to validate.
 
         Raises:
             TypeError: If value is not an integer.
-            ValueError: If value is <= 0.
+            ValueError: If value is less than or equal to 0.
         """
         if type(value) is not int:
             raise TypeError(f"{name} must be an integer")
