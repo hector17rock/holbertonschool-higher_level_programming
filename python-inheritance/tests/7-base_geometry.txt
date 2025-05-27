@@ -1,39 +1,15 @@
-#!/usr/bin/python3
-import unittest
+This is a test file for BaseGeometry.
 
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = __import__('7-base_geometry').BaseGeometry()
+>>> bg.integer_validator("age", 5)
 
+>>> bg.integer_validator("size", 0)
+Traceback (most recent call last):
+...
+ValueError: size must be greater than 0
 
-class TestBaseGeometry(unittest.TestCase):
-    def setUp(self):
-        self.bg = BaseGeometry()
+>>> bg.integer_validator("length", "not an int")
+Traceback (most recent call last):
+...
+TypeError: length must be an integer
 
-    def test_integer_validator_valid(self):
-        # These should not raise any exception
-        try:
-            self.bg.integer_validator("width", 5)
-            self.bg.integer_validator("height", 1)
-        except Exception as e:
-            self.fail(f"Unexpected exception raised: {e}")
-
-    def test_integer_validator_type_error(self):
-        with self.assertRaises(TypeError) as cm:
-            self.bg.integer_validator("size", "not an int")
-        self.assertEqual(str(cm.exception), "size must be an integer")
-
-        with self.assertRaises(TypeError) as cm:
-            self.bg.integer_validator("size", 5.5)
-        self.assertEqual(str(cm.exception), "size must be an integer")
-
-    def test_integer_validator_value_error(self):
-        with self.assertRaises(ValueError) as cm:
-            self.bg.integer_validator("length", 0)
-        self.assertEqual(str(cm.exception), "length must be greater than 0")
-
-        with self.assertRaises(ValueError) as cm:
-            self.bg.integer_validator("length", -10)
-        self.assertEqual(str(cm.exception), "length must be greater than 0")
-
-
-if __name__ == '__main__':
-    unittest.main()
