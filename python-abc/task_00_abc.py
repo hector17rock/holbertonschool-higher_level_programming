@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Defines an abstract Animal class and its concrete subclasses."""
+"""Defines an abstract Animal class and two subclasses Dog and Cat."""
 
 from abc import ABC, abstractmethod
 
@@ -9,13 +9,21 @@ class Animal(ABC):
 
     @abstractmethod
     def sound(self):
-        """Return the sound made by the animals."""
+        """Abstract method that should be implemented by subclasses."""
         pass
 
 
 class Dog(Animal):
-    """Concrete class representing a dog."""
+    """Dog class that implements the Animal interface."""
 
     def sound(self):
-        """Return the sound a dog makes."""
+        """Return the sound of a dog."""
         return "Bark"
+
+
+class Cat(Animal):
+    """Cat class that implements the Animal interface."""
+
+    def sound(self):
+        """Return the sound of a cat."""
+        return "Meow"
