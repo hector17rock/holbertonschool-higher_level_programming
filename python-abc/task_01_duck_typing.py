@@ -1,27 +1,26 @@
 #!/usr/bin/env python3
-"""Defines Shape abstract base class and its implementations:
-Circle and Rectangle."""
+"""Defines Shape ABC and implementations Circle and Rectangle."""
 
 from abc import ABC, abstractmethod
 import math
 
 
 class Shape(ABC):
-    """Abstract base class for geometric shapes."""
+    """Abstract base class for shapes."""
 
     @abstractmethod
     def area(self):
-        """Compute the area of the shape."""
+        """Compute and return area of the shape."""
         pass
 
     @abstractmethod
     def perimeter(self):
-        """Compute the perimeter of the shape."""
+        """Compute and return perimeter of the shape."""
         pass
 
 
 class Circle(Shape):
-    """Concrete Circle class implementing Shape interface."""
+    """Circle shape defined by its radius."""
 
     def __init__(self, radius):
         self.radius = radius
@@ -36,7 +35,7 @@ class Circle(Shape):
 
 
 class Rectangle(Shape):
-    """Concrete Rectangle class implementing Shape interface."""
+    """Rectangle shape defined by width and height."""
 
     def __init__(self, width, height):
         self.width = width
@@ -52,6 +51,6 @@ class Rectangle(Shape):
 
 
 def shape_info(shape):
-    """Prints the area and perimeter of a shape using duck typing."""
+    """Print area and perimeter of any shape (duck typing)."""
     print("Area:", shape.area())
     print("Perimeter:", shape.perimeter())
