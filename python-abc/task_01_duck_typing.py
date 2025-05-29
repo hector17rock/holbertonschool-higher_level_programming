@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Defines Shape ABC and implementations Circle and Rectangle."""
+"""Shape classes demonstrating abstract base classes and duck typing."""
 
 from abc import ABC, abstractmethod
 import math
