@@ -10,7 +10,7 @@ class Shape(ABC):
 
     @abstractmethod
     def area(self):
-        """Compute and return area of the shape."""
+        """Calculate the area of the shape."""
         pass
 
     @abstractmethod
