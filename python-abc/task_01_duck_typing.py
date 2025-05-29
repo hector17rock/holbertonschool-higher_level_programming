@@ -60,3 +60,17 @@ def shape_info(shape):
     """
     print("Area: {}".format(shape.area()))
     print("Perimeter: {}".format(shape.perimeter()))
+
+
+if __name__ == "__main__":
+    # Create instances of Circle and Rectangle
+    circle = Circle(5)
+    rectangle = Rectangle(4, 6)
+
+    # Display info for Circle
+    print("Circle:")
+    shape_info(circle)
+
+    # Display info for Rectangle
+    print("\nRectangle:")
+    shape_info(rectangle)
