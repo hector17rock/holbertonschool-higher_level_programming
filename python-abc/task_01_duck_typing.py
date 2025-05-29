@@ -8,14 +8,12 @@ import math
 class Shape(ABC):
     """Abstract base class for shapes."""
 
-    @abstractmethod
     def area(self):
         """Calculate the area of the shape."""
         pass
 
-    @abstractmethod
     def perimeter(self):
-        """Compute and return perimeter of the shape."""
+        """Calculate the perimeter of the shape."""
         pass
 
 
@@ -31,7 +29,7 @@ class Circle(Shape):
         return math.pi * self.radius ** 2
 
     def perimeter(self):
-        """Return perimeter (circumference) of the circle."""
+        """Calculate the circumference of the circle."""
         return 2 * math.pi * self.radius
 
 
