@@ -29,9 +29,8 @@ class SimpleAPIHandler(http.server.BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(data).encode("utf-8"))
 
         elif self.path == "/status":
-            status = {"message": "OK"}
-            self._set_headers(content_type="application/json")
-            self.wfile.write(json.dumps(status).encode("utf-8"))
+            self._set_headers()
+            self.wfile.write(b"OK")
 
         elif self.path == "/info":
             info = {
@@ -42,9 +41,8 @@ class SimpleAPIHandler(http.server.BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(info).encode("utf-8"))
 
         else:
-            error = {"error": "Not Found"}
-            self._set_headers(status_code=404, content_type="application/json")
-            self.wfile.write(json.dumps(error).encode("utf-8"))
+            self._set_headers(status_code=404)
+            self.wfile.write(b"404 Not Found")
 
 
 if __name__ == "__main__":
