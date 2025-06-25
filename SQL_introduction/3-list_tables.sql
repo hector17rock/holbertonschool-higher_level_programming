@@ -1,2 +1,3 @@
---script to show tables of a dtabase
+-- Script to show tables of a database
 SHOW TABLES;
+
