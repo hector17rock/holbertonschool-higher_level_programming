@@ -1,7 +1,12 @@
 #!/usr/bin/python3
 """
-Script that takes in an argument and displays all values in the states table
-of hbtn_0e_0_usa where name matches the argument
+This module contains a script that takes in an argument and displays all values
+in the states table of hbtn_0e_0_usa where name matches the argument using
+MySQLdb.
+
+The script connects to a MySQL database and executes a SELECT query with user
+input using string formatting to filter states by exact name match.
+Note: This approach is vulnerable to SQL injection attacks.
 """
 
 import MySQLdb
