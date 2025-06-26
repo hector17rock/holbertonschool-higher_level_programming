@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 """
-Script that lists all states with a name starting with N (upper N)
-from the database hbtn_0e_0_usa
+This module contains a script that lists all states with a name starting with N
+(upper N) from the database hbtn_0e_0_usa using MySQLdb.
+
+The script connects to a MySQL database and executes a SELECT query
+to filter states whose names begin with the letter 'N'.
 """
 
 import MySQLdb
