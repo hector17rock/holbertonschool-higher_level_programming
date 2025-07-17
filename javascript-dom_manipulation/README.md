@@ -513,7 +513,7 @@ For questions or clarifications about DOM manipulation concepts:
 
 ---
 
-**Author:** Holberton School Student  
+**Author:** Hector  
 **Project:** JavaScript DOM Manipulation  
 **Track:** Higher Level Programming  
 **Completion:** 9 tasks demonstrating progressive DOM manipulation skills
